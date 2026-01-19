@@ -4,11 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joy Badola</title>
-  <!-- Add this line for favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css" />
+  <!-- Lottie Player Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   <!-- Added spacing rule specifically for video containers after buttons -->
   <style>
     .buttons + .video-container {
@@ -19,11 +17,13 @@
 <body>
    <!-- About Section -->
   <section id="about" class="about">
-    <h2>Joy Badola</h2>
-    <p><center>You'll find everything I have created here. See, hear, feel, download and enJOY</center></p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 1.5rem;">
+      <div id="lottie-left" style="width: 100px; height: 100px;"></div>
+      <h2 style="margin: 0;">ENJOYING</h2>
+      <div id="lottie-right" style="width: 100px; height: 100px;"></div>
+    </div>
+    <p>I love building things. You'll find everything I have created here. Please feel free to see, hear, download and enJOY</p>
   </section>
-  <!-- Hero Section -->
-  <section id="home" class="hero">
     <!-- Video 1 -->
     <div class="video-container">
       <iframe
