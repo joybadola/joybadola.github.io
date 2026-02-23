@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <div class="stars-wrapper" id="stars"></div>
+  <canvas id="starfield"></canvas>
 
   <!-- About Section -->
   <section id="about" class="about">
@@ -146,30 +146,64 @@
   </footer>
 
   <script>
-    const wrapper = document.getElementById('stars');
-    const count = 120;
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
 
-    for (let i = 0; i < count; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
+    let W, H, cx, cy;
 
-      const size = Math.random() * 3 + 1;
-      const left = Math.random() * 100;
-      const duration = Math.random() * 10 + 6;
-      const delay = Math.random() * 15;
-      const glow = Math.round(size * 2);
-
-      star.style.cssText = `
-        width: ${size}px;
-        height: ${size}px;
-        left: ${left}%;
-        animation-duration: ${duration}s;
-        animation-delay: ${delay}s;
-        box-shadow: 0 0 ${glow}px ${glow}px rgba(255,255,255,0.6);
-      `;
-
-      wrapper.appendChild(star);
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+      cx = W / 2;
+      cy = H / 2;
     }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const STAR_COUNT = 280;
+    const SPEED      = 4;
+    const MAX_DEPTH  = 1000;
+
+    const stars = Array.from({ length: STAR_COUNT }, () => ({
+      x: (Math.random() - 0.5) * W * 2,
+      y: (Math.random() - 0.5) * H * 2,
+      z: Math.random() * MAX_DEPTH
+    }));
+
+    function resetStar(s) {
+      s.x = (Math.random() - 0.5) * W * 2;
+      s.y = (Math.random() - 0.5) * H * 2;
+      s.z = MAX_DEPTH;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      for (const s of stars) {
+        s.z -= SPEED;
+        if (s.z <= 0) { resetStar(s); continue; }
+
+        const scale = MAX_DEPTH / s.z;
+        const sx    = cx + s.x * scale;
+        const sy    = cy + s.y * scale;
+
+        if (sx < 0 || sx > W || sy < 0 || sy > H) { resetStar(s); continue; }
+
+        const size    = Math.min(scale * 0.5, 1.6);
+        const opacity = Math.min(scale * 0.35, 1);
+
+        ctx.beginPath();
+        ctx.arc(sx, sy, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${opacity})`;
+        ctx.shadowBlur  = size * 3;
+        ctx.shadowColor = 'rgba(255,255,255,0.8)';
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
   </script>
 
 </body>
