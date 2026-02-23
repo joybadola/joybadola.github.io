@@ -8,6 +8,8 @@
 </head>
 <body>
 
+  <div class="stars-wrapper" id="stars"></div>
+
   <!-- About Section -->
   <section id="about" class="about">
     <h2>Joy Badola</h2>
@@ -142,6 +144,33 @@
   <footer>
     <p>&copy; 2025 Joy Badola. All rights reserved.</p>
   </footer>
+
+  <script>
+    const wrapper = document.getElementById('stars');
+    const count = 120;
+
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+
+      const size = Math.random() * 3 + 1;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 10 + 6;
+      const delay = Math.random() * 15;
+      const glow = Math.round(size * 2);
+
+      star.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${left}%;
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+        box-shadow: 0 0 ${glow}px ${glow}px rgba(255,255,255,0.6);
+      `;
+
+      wrapper.appendChild(star);
+    }
+  </script>
 
 </body>
 </html>
