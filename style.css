@@ -13,6 +13,38 @@ body {
   line-height: 1.6;
   color: #ffffff;
   background-color: #000000;
+  overflow-x: hidden;
+}
+
+/* ── STARFIELD ── */
+.stars-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 50%;
+  background: white;
+  animation: rise linear infinite;
+  opacity: 0;
+}
+
+@keyframes rise {
+  0%   { transform: translateY(0);      opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* ── Everything above the stars ── */
+section, .content-wrapper, footer, nav {
+  position: relative;
+  z-index: 1;
 }
 
 nav {
