@@ -1,21 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Raleway:wght@400;500;600&display=swap');
 
 :root {
   --primary-color: #880808;
   --dark-color: #0056b3;
   --spacing: 2rem;
 }
-
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.6;
   color: #ffffff;
   background-color: #000000;
   overflow-x: hidden;
 }
-
 #starfield {
   position: fixed;
   top: 0;
@@ -25,12 +23,10 @@ body {
   z-index: 0;
   pointer-events: none;
 }
-
 section, .content-wrapper, footer, nav {
   position: relative;
   z-index: 1;
 }
-
 nav {
   padding: var(--spacing);
   background-color: #1a1a1a;
@@ -51,11 +47,11 @@ nav li a {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s;
+  font-family: 'Raleway', sans-serif;
 }
 nav li a:hover {
   background-color: #333333;
 }
-
 .about {
   padding: 4rem var(--spacing) 2rem;
   max-width: 1000px;
@@ -64,7 +60,7 @@ nav li a:hover {
   text-align: center;
 }
 .about h2 {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: 'Cinzel', serif;
   font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 1.5rem;
@@ -73,8 +69,8 @@ nav li a:hover {
   font-size: 1.1rem;
   margin: 1rem 0;
   color: #e0e0e0;
+  font-family: 'Raleway', sans-serif;
 }
-
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -83,7 +79,6 @@ nav li a:hover {
   padding: 0 0 4rem;
   box-sizing: border-box;
 }
-
 .video-container {
   width: 100%;
   max-width: 900px;
@@ -102,7 +97,6 @@ nav li a:hover {
   left: 0;
   border: none;
 }
-
 .buttons {
   display: flex;
   justify-content: center;
@@ -111,11 +105,11 @@ nav li a:hover {
   margin-top: 1.2rem;
   width: 100%;
 }
-
 .download-btn {
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: 600;
+  font-family: 'Raleway', sans-serif;
   text-decoration: none;
   border-radius: 50px;
   border: none;
@@ -133,18 +127,17 @@ nav li a:hover {
 .download-btn:active {
   transform: translateY(1px);
 }
-
 footer {
   padding: 2rem var(--spacing);
   background-color: #1a1a1a;
   color: white;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 footer p {
   margin: 0;
   font-size: 1rem;
 }
-
 @media (max-width: 960px) {
   .video-container {
     max-width: calc(100% - 2rem);
